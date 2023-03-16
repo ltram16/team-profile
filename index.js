@@ -48,9 +48,11 @@ inquirer.prompt([
                 name,
                 id,
                 email,
-                school,
+                officeNumber,
             ))
+            another()
         });
+            
         break;
 
         case 'Engineer':
@@ -67,7 +69,7 @@ inquirer.prompt([
                 email,
                 github,
             ))
-            
+            another()
         });
         break;
         case 'Intern':
@@ -106,19 +108,95 @@ function another() {
     })
 };
 
+function managerCard(manager) {
+    return `
+    <div class="col-auto mb-3">
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <h5 class="card-title">${manager.name}</h5>
+            <small class="text-muted">${manager.role}</small>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${manager.id}</li>
+            <li class="list-group-item">${manager.email}</li>
+            <li class="list-group-item">${manager.officeNumber}</li>
+        </ul>
+    </div>
+    </div>
+    `;
+}
+
+function engineerCard(engineer) {
+    return `
+    <div class="col-auto mb-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    <h5 class="card-title">${engineer.name}</h5>
+                    <small class="text-muted">${engineer.role}</small>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${engineer.id}</li>
+                    <li class="list-group-item">${engineer.email}</li>
+                    <li class="list-group-item">${engineer.github}</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+function internCard(intern) {
+    return `
+    <div class="col-auto mb-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    <h5 class="card-title">${intern.name}</h5>
+                    <small class="text-muted">${intern.role}</small>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${intern.id}</li>
+                    <li class="list-group-item">${intern.email}</li>
+                    <li class="list-group-item">${intern.school}</li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
 function renderHTMLFile() {
     fs.writeFileSync('./index.html', /*html*/`
-        <ul>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link ref="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Team Profile Generator</title>
+</head>
+<div class="jumbotron">
+    <h1 class="display-4">Meet the Team!</h1>
+</div>
+<div class="container">
+<div class="row">
+    <body>
+        <div class="container-fluid mt-4">
+            <div class="row justify-content-center">
             ${employees.map((employee) => {
-                <li>
-                    <div>
-                    <h1>${employee.getName()}</h1>
-                    <p>${employee.getEmail()}</p>
-                    </div>
-                </li>
-             })
-            } 
-        </ul>
+                switch (employee.getRole()) {
+                    case "Manager":
+                        return managerCard(employee);
+                    case "Engineer":
+                        return engineerCard(employee);
+                    case "Intern":
+                        return internCard(employee);
+             }
+            }
+    ).join("")} 
+            </div>
+        </div>
+    </body>
+</html>
     `
 )};
 
