@@ -6,7 +6,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const employees = [];
 
-//TODO - write your inquirer app here to gather information about the team members, and generate the HTML file using fs
+
 function newEmployee() {
 inquirer.prompt([
     {
@@ -104,7 +104,6 @@ function another() {
     ]).then(({ more }) => {
         if (more) newEmployee()
         else renderHTMLFile()
-        // else console.log(employees)
     })
 };
 
