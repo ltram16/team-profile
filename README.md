@@ -8,5 +8,7 @@ This repository contains a team profile generator that is run through the comman
 
 ## Screenshot
 
+<img width="1222" alt="teampage" src="https://user-images.githubusercontent.com/119918403/227107715-2467e298-f641-4b59-8f3d-e4f6423c3955.png">
+
 
 ## Walkthrough Demo
