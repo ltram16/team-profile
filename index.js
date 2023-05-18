@@ -44,7 +44,7 @@ inquirer.prompt([
                     message: 'What is the office number?'
                 }
         ]).then(({ officeNumber }) => {
-            employees.push(new Intern(
+            employees.push(new Manager(
                 name,
                 id,
                 email,
@@ -109,55 +109,55 @@ function another() {
 
 function managerCard(manager) {
     return `
-    <div class="col-auto mb-3">
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-            <h5 class="card-title">${manager.name}</h5>
+    <div class = "col-auto mb-3">
+     <div class = "card" style="width: 18rem;">
+        <div class = "card-header">
+            <h5 class = "card-title">${manager.name}</h3>
             <small class="text-muted">${manager.role}</small>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">${manager.id}</li>
-            <li class="list-group-item">${manager.email}</li>
-            <li class="list-group-item">${manager.officeNumber}</li>
+        <ul class = "list-group list-group-flush">
+            <li class = "list-group-item">Id: ${manager.id}</li>
+            <li class = "list-group-item">Email: ${manager.email}</li>
+            <li class = "list-group-item">Office Number: ${manager.officeNumber}</li>
         </ul>
-    </div>
+     </div>
     </div>
     `;
 }
 
 function engineerCard(engineer) {
     return `
-    <div class="col-auto mb-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h5 class="card-title">${engineer.name}</h5>
-                    <small class="text-muted">${engineer.role}</small>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${engineer.id}</li>
-                    <li class="list-group-item">${engineer.email}</li>
-                    <li class="list-group-item">${engineer.github}</li>
-                </ul>
-            </div>
+    <div class = "col-auto mb-3">
+     <div class = "card" style="width: 18rem;">
+        <div class = "card-header">
+            <h5 class = "card-title">${engineer.name}</h3>
+            <small class="text-muted">${engineer.role}</small>
         </div>
+        <ul class = "list-group list-group-flush">
+            <li class = "list-group-item">Id: ${engineer.id}</li>
+            <li class = "list-group-item">Email: ${engineer.email}</li>
+            <li class = "list-group-item">Github: ${engineer.github}</li>
+        </ul>
+     </div>   
+    </div>
     `;
 }
 
 function internCard(intern) {
     return `
-    <div class="col-auto mb-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h5 class="card-title">${intern.name}</h5>
-                    <small class="text-muted">${intern.role}</small>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${intern.id}</li>
-                    <li class="list-group-item">${intern.email}</li>
-                    <li class="list-group-item">${intern.school}</li>
-                </ul>
-            </div>
+    <div class = "col-auto mb-3">
+     <div class = "card" style="width: 18rem;">
+        <div class = "card-header">
+            <h5 class = "card-title">${intern.name}</h3>
+            <small class="text-muted">${intern.role}</small>
         </div>
+        <ul class = "list-group list-group-flush">
+            <li class = "list-group-item">Id: ${intern.id}</li>
+            <li class = "list-group-item">Email: ${intern.email}</li>
+            <li class = "list-group-item">School: ${intern.school}</li>
+        </ul>
+     </div>  
+    </div>
     `;
 }
 
@@ -173,7 +173,7 @@ function renderHTMLFile() {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Team Profile Generator</title>
 </head>
-<div class="jumbotron">
+<div class="jumbotron" style="background-color:#7dabe3">
     <h1 class="display-4">Meet the Team!</h1>
 </div>
 <div class="container">
