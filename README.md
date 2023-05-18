@@ -10,3 +10,5 @@ This repository contains a team profile generator that is run through the comman
 
 
 ## Walkthrough Demo
+
+https://drive.google.com/file/d/1KwcLlWn9MWxgzwCoHuNV5SWED-Ryz7Is/view
